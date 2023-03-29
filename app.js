@@ -23,10 +23,9 @@ app.post("/bfhl", (req, res) => {
       try {
         num = parseInt(element);
       } catch (e) {}
-      if (num != NaN) {
+      if (!isNaN(num)) {
         if (num % 2 == 0) {result.even_numbers.push(num.toString())}
-        else if(num%2 == 1) {result.odd_numbers.push(num)}
-
+        else if(num%2 == 1) {result.odd_numbers.push(num.toString())}
       } else {
         result.alphabets.push(element.toUpperCase());
       }
