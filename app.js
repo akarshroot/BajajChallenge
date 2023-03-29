@@ -1,17 +1,16 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const app = express();
 
 const PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.post("/bfhl", (req, res) => {
   try {
-    const body = req.body.data;
-
-    const data = body.split("[")[1].split("]")[0].split(",");
+    let data = req.body.data;
+    console.log(data);
+    data = data.split("[")[1].split("]")[0].split(",");
     const result = {
       user_id: "akarsh_tripathi_11102002",
       email: "akarsh1278.be20@chitkarauniversity.edu.in",
