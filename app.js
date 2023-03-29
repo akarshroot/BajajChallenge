@@ -9,7 +9,9 @@ app.use(bodyParser.json());
 
 app.post("/bfhl", (req, res) => {
   try {
-    const body = req.body;
+    const body = req.body.data;
+
+    const data = body.split("[")[1].split("]")[0].split(",");
     const result = {
       user_id: "akarsh_tripathi_11102002",
       email: "akarsh1278.be20@chitkarauniversity.edu.in",
