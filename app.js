@@ -19,13 +19,14 @@ app.post("/bfhl", (req, res) => {
       alphabets: [],
     };
     data.forEach((element) => {
-      let num;
+      let num = NaN;
       try {
         num = parseInt(element);
       } catch (e) {}
       if (num != NaN) {
-        if (num % 2 == 0) result.even_numbers.push(num.toString());
-        else result.odd_numbers.push(num.toString());
+        if (num % 2 == 0) {result.even_numbers.push(num.toString())}
+        else if(num%2 == 1) {result.odd_numbers.push(num)}
+
       } else {
         result.alphabets.push(element.toUpperCase());
       }
